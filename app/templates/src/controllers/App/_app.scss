@@ -1,0 +1,82 @@
+/*************************/
+/////// GENERAL VARS //////
+/*************************/
+
+//TODO vars
+
+/*************************/
+/////// CUSTOM VARS /////// 
+/*************************/
+
+//TODO vars
+
+/*************************/
+///// TYPOGRAPHY VARS /////
+/*************************/
+
+//TODO vars
+
+/*************************/
+///// COMPONENT CODE //////
+/*************************/
+
+//TODO code
+
+/*************************/
+/////// CUSTOM CODE /////// 
+/*************************/
+
+#SiteContainer{
+    // position:relative;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+
+    overflow: auto;
+}
+
+.app-container{
+    position:relative;
+    min-height: 100%;
+    height:auto;
+    overflow: auto;
+
+    // .app-content-container{
+    //     position:absolute; 
+    //     top:0px; 
+    //     left:0px; 
+    //     width:100%; 
+    //     bottom:nth($footer-heights, 1); 
+    // }
+
+    @include SmallDevice{
+        .app-content-container{
+            bottom:0px;
+        }
+    }
+
+
+    @include MediumDevice{
+        .app-content-container{
+            position: relative;
+        }
+    }
+
+}
+
+@include OnEmbedDevice(){
+
+    .social-buttons-wrapper{
+        width:80px;
+    }
+}
+
+@include MediumDevice{
+
+    .social-buttons-wrapper{
+        width:200px;
+    }
+
+}
