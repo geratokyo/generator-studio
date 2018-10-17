@@ -1,12 +1,12 @@
-#__Devling Template Generator__
+#__Studio Template Generator__
 
 ##Getting started
 
-install Yeoman and generator-devling globally
+install Yeoman and generator-studio globally
 
 ```
 npm install yo -g
-npm install generator-devling -g
+npm install generator-studio -g
 ```
 
 
@@ -14,10 +14,10 @@ npm install generator-devling -g
 
 To create the project template run the following
 
-##devling
+##studio
 ```
 
-yo devling {AppName}
+yo studio {AppName}
 
 ```
 Where {AppName} is the name of the application
@@ -41,7 +41,7 @@ Where {AppName} is the name of the application
 To create a controller run the following 
 
 ```
-yo devling:ctrl {CtrlName}
+yo studio:ctrl {CtrlName}
 ```
 Where {CtrlName} is the name of the controller
 
@@ -49,7 +49,7 @@ Where {CtrlName} is the name of the controller
 To create a page run the following 
 
 ```
-yo devling:page {PageName}
+yo studio:page {PageName}
 ```
 Where {PageName} is the name of the page
 
@@ -62,7 +62,7 @@ Where {PageName} is the name of the page
 To create a ui component run the following 
 
 ```
-yo devling:ui {UiName}
+yo studio:ui {UiName}
 ```
 Where {UiName} is the name of the ui component
 
@@ -77,7 +77,7 @@ Where {UiName} is the name of the ui component
 To create a ui component run the following 
 
 ```
-yo devling:pr {PrName}
+yo studio:pr {PrName}
 ```
 Where {PrName} is the name of the functional component
 
@@ -92,7 +92,7 @@ Where {PrName} is the name of the functional component
 To create a higher order component run the following 
 
 ```
-yo devling:hoc {PrName}
+yo studio:hoc {PrName}
 ```
 Where {PrName} is the name of the functional component
 
@@ -107,6 +107,6 @@ Where {PrName} is the name of the functional component
 To create a model scafolding template run the following 
 
 ```
-yo devling:model {ModelName}
+yo studio:model {ModelName}
 ```
 Where {ModelName} is the name of the model
