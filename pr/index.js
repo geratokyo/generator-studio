@@ -42,6 +42,7 @@ module.exports = class extends Generator {
   }
 
   _copyFiles(){
+    console.log(this.config.getAll())
     let srcDir = this.config.get("srcDir"); 
     let isStory = this.config.get("isStory"); 
     let dir = srcDir + 'src/components/'+this.folder+'/'+ this.uCamelCName+'/';
