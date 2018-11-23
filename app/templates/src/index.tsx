@@ -27,7 +27,6 @@ declare var process : {
 
 (function () {
 
-    console.log("NODE_ENV",Process)
     if(IS_MOBILE) {
         document.querySelector("body").classList.add("mobile");
     }

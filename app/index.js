@@ -108,19 +108,6 @@ module.exports = class extends Generator {
             }
         );
 
-        this.fs.copyTpl(
-            this.templatePath('webpack/**'),
-            this.destinationPath('webpack/'),
-            {
-                srcDir:srcDir,
-                appname: this.options.appname,
-                globOptions: {
-                    dot: true,
-                    ignore: ignoreFiles
-                }
-            }
-        );
-
         this.fs.copy(
             this.templatePath('s.gitignore'),
             this.destinationPath('.gitignore')

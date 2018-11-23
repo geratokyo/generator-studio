@@ -9,3 +9,5 @@ public/logs
 /.sass-cache
 /logs
 logs
+.fusebox
+/.fusebox
