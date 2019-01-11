@@ -35,7 +35,7 @@ export class HomePage extends React.Component<HomePageProps, HomePageState>{
             <div className={"home-page " + cls}>
                 <div className="row">
                     <div className="col s12 m12 l12">
-                        <h1>Devling Generator</h1>
+                        <h1>Studio Generator</h1>
                     </div>
                 </div>
             </div>
