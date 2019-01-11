@@ -15,6 +15,7 @@ import {
 
 import HomePage from '../../pages/Homepage/Homepage';
 import DATA_SERVICE from '../../services/DataService';
+import FullPage from '../../pages/FullPage/FullPage';
 
 export const STATE_KEY = 'app';
 
@@ -43,6 +44,8 @@ class App extends React.Component<AppProps, inAppState>{
                 <Router>
                     <Switch>
                         <Route exact path="/" component={HomePage} />
+
+                        <Route exact path="/full-content" component={FullPage} />
                     </Switch>
                 </Router>
             </div>

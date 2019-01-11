@@ -19,9 +19,11 @@ export enum WINDOW_VIEWS {
 
 export interface AppState{
 	locale:Translation; 
+	data:Dictionary<iData>;
 }
 export const AppInitState:AppState = {
-	locale:INIT_TRANSLATIONS
+	locale:INIT_TRANSLATIONS,
+	data:null
 }
 
 export interface inAppState{
