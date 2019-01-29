@@ -32,7 +32,7 @@ export class EmbedCode extends React.Component<EmbedCodeProps, EmbedCodeState>{
 
     render() {
         let props = this.props;
-        let specificHash = "#/embed";
+        let specificHash = "#embed";
 
         //make sure url has no hash and other vars
         let url = (document.URL).split("#")[0];

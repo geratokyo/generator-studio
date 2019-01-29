@@ -1,6 +1,6 @@
 
 import * as ReactRedux from 'react-redux'; 
-import { iActionType, Translation, INIT_TRANSLATIONS } from '../../models/models';
+import { iActionType, Translation, INIT_TRANSLATIONS, Dictionary, iData } from '../../models/models';
 export const STATE_KEY = 'app';
 
 

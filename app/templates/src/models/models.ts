@@ -57,3 +57,11 @@ export const INIT_TRANSLATIONS:Translation = {
 }
 
 
+
+export interface iData{
+    key:string;
+    title: string;    
+    graphType:string;
+    copy: string[];    
+    data: any[] | any;
+}

@@ -15,5 +15,9 @@ logs
 public/css/main.scss.map
 /public/js/bundle.js.map
 public/js/bundle.js.map
+/public/css/main.css
+public/css/main.css
+/public/js/bundle.js
+public/js/bundle.js
 /index.html
 index.html

@@ -41,10 +41,9 @@ class App extends React.Component<AppProps, inAppState>{
             props = this.props;
         return (
             <div className={`app`}>
-                <Router>
+                <Router hashType="noslash">
                     <Switch>
                         <Route exact path="/" component={HomePage} />
-
                         <Route exact path="/full-content" component={FullPage} />
                     </Switch>
                 </Router>
