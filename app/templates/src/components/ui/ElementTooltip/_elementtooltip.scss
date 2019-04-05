@@ -2,10 +2,10 @@
 /////// GENERAL VARS //////
 /*************************/
 
-$tooltip-widths-gen: 40px 40px 40px; 
+$tooltip-widths-gen: 200px 200px 200px; 
 $background-color: $color-2; 
-$triangle-widths: 5px 5px 5px;
-$text-color:$color-1;
+$triangle-widths: 10px 10px 10px;
+$text-color:white;
 
 /*************************/
 /////// CUSTOM VARS /////// 
@@ -22,18 +22,23 @@ $tooltip-widths: 40px 40px 40px;
 /*************************/
 ///// COMPONENT CODE //////
 /*************************/
-.element-tooltip{
+.element-tooltip-container{
     position:relative; 
     color: $text-color;
     vertical-align: middle;
-    .element-tooltip__content{
+    &:focus{
+        outline:none;
+    }
+
+    hr{
+        margin:0px;
+    }
+    .element-tooltip-content-container{
         display: none;
         position:absolute; 
         width:nth($tooltip-widths-gen, 1); 
         height: auto;
         background-color:$background-color;
-        text-align: center;
-        margin-top:-2px;
         color: $text-color;
         vertical-align: middle;
         .shown-element-container{
@@ -46,25 +51,25 @@ $tooltip-widths: 40px 40px 40px;
     }
 
     &.trigger-on-hover:hover{
-        & > .element-tooltip__content{
+        & > .element-tooltip-content-container{
             display: block!important;
         }
     }
 
     &.trigger-on-click[data-visible="true"]{
-        & > .element-tooltip__content{
+        & > .element-tooltip-content-container{
             display: block!important;
         }
     }
 
     &.top-side{
-        .element-tooltip__content{
+        .element-tooltip-content-container{
             bottom:100%; 
             left:50%; 
             margin-left:-(nth($tooltip-widths-gen, 1)/2) - 0px; 
         }
         &.has-arrow{
-            & > .element-tooltip__content{
+            & > .element-tooltip-content-container{
                 margin-bottom:10px;
                 &:after{
                     content:' ';
@@ -76,7 +81,7 @@ $tooltip-widths: 40px 40px 40px;
                     height: 0; 
                     border-left: nth($triangle-widths, 1) solid transparent;
                     border-right: nth($triangle-widths, 1) solid transparent;
-                    border-top: (nth($triangle-widths, 1)*3) solid $background-color;
+                    border-top: (nth($triangle-widths, 1)) solid $background-color;
                 }
             }
 
@@ -84,15 +89,15 @@ $tooltip-widths: 40px 40px 40px;
     }
 
     &.bottom-side{
-        .element-tooltip__content{
+        .element-tooltip-content-container{
             top:100%; 
             left:50%; 
             margin-left:-(nth($tooltip-widths-gen, 1)/2) - 0px; 
         }
 
         &.has-arrow{
-            & > .element-tooltip__content{
-                margin-bottom:10px;
+            & > .element-tooltip-content-container{
+                margin-top:10px;
                 &:after{
                     content:' ';
                     position:absolute; 
@@ -103,14 +108,14 @@ $tooltip-widths: 40px 40px 40px;
                     height: 0; 
                     border-left: nth($triangle-widths, 1) solid transparent;
                     border-right: nth($triangle-widths, 1) solid transparent;
-                    border-bottom: (nth($triangle-widths, 1)*3) solid $background-color;
+                    border-bottom: (nth($triangle-widths, 1)) solid $background-color;
                 }
             }
         }
     }
 
     &.right-side{
-        .element-tooltip__content{
+        .element-tooltip-content-container{
             top:50%; 
             left:100%; 
             margin-top:-(nth($tooltip-widths-gen, 1)/2) - 0px; 
@@ -120,7 +125,7 @@ $tooltip-widths: 40px 40px 40px;
         }
 
         &.has-arrow{
-            & > .element-tooltip__content{
+            & > .element-tooltip-content-container{
                 margin-left:10px;
                 &:after{
                     content:' ';
@@ -132,21 +137,21 @@ $tooltip-widths: 40px 40px 40px;
                     height: 0; 
                     border-top: nth($triangle-widths, 1) solid transparent;
                     border-bottom: nth($triangle-widths, 1) solid transparent;
-                    border-right: (nth($triangle-widths, 1)*3) solid $background-color;
+                    border-right: (nth($triangle-widths, 1)) solid $background-color;
                 }
             }
         }
     }
 
     &.left-side{
-        .element-tooltip__content{
+        .element-tooltip-content-container{
             top:50%; 
             right:100%; 
             margin-top:-(nth($tooltip-widths-gen, 1)/2) - 0px; 
         }
 
         &.has-arrow{
-            & > .element-tooltip__content{
+            & > .element-tooltip-content-container{
                 margin-right:10px;
                 &:after{
                     content:' ';
@@ -158,7 +163,7 @@ $tooltip-widths: 40px 40px 40px;
                     height: 0; 
                     border-top: nth($triangle-widths, 1) solid transparent;
                     border-bottom: nth($triangle-widths, 1) solid transparent;
-                    border-left: (nth($triangle-widths, 1)*3) solid $background-color;
+                    border-left: (nth($triangle-widths, 1)) solid $background-color;
                 }
             }
         }
@@ -181,6 +186,80 @@ $tooltip-widths: 40px 40px 40px;
         & > i{
             font-size: 40px;
             vertical-align: middle;
+        }
+    }
+}
+
+
+.element-tooltip-container--dark{
+
+    .element-tooltip-content-container{
+        z-index: 99999;
+        background-color:$color-1!important; 
+        color:$color-2!important;
+        padding:12px!important;
+        width:auto!important; 
+        min-width:140px!important;
+        border-radius: 4px;
+
+    }
+    &.top-side{
+
+        .element-tooltip-content-container{
+            margin-left:auto;
+            transform: translateX(-50%) 
+        }
+        &.has-arrow{
+            .element-tooltip-content-container{
+                &:after{
+                    border-top: (nth($triangle-widths, 1)) solid $color-1!important;
+                }
+            }
+        }
+    }
+    &.bottom-side{
+
+        .element-tooltip-content-container{
+            margin-left:auto;
+            transform: translateX(-50%) 
+        }
+
+        &.has-arrow{
+            .element-tooltip-content-container{
+                &:after{
+                    border-bottom: (nth($triangle-widths, 1)) solid $color-1!important;
+                }
+            }
+        }
+    }
+
+    &.left-side{
+
+        .element-tooltip-content-container{
+            margin-top:auto;
+            transform: translateY(-50%) 
+        }
+        &.has-arrow{
+            .element-tooltip-content-container{
+                &:after{
+                    border-left: (nth($triangle-widths, 1)) solid $color-1!important;
+                }
+            }
+        }
+    }
+
+    &.right-side{
+
+        .element-tooltip-content-container{
+            margin-top:auto;
+            transform: translateY(-50%) 
+        }
+        &.has-arrow{
+            .element-tooltip-content-container{
+                &:after{
+                    border-right: (nth($triangle-widths, 1)) solid $color-1!important;
+                }
+            }
         }
     }
 }

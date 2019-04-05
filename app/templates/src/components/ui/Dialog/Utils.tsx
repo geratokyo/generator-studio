@@ -29,7 +29,7 @@ export const InfoComponent: React.SFC<any> = (props) => {
         <div className="info-container container">
             <div className="row">
                 <div className="col s12">
-                    <h1 className="center dialog__header"><p>{props.locale.infoTitle}</p></h1>
+                    <h1 className="center dialog__header">{props.locale.infoTitle}</h1>
                 </div>
             </div>
             <div className="row">
@@ -45,7 +45,7 @@ export const EmbedComponent: React.SFC<any> = (props) => {
 
             <div className="row">
                 <div className="col s12">
-                    <h1 className="dialog__header center"><p>{props.locale.embedCopyTitle}</p></h1>
+                    <h1 className="dialog__header center">{props.locale.embedCopyTitle}</h1>
                 </div>
             </div>
             <div className="row">
