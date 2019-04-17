@@ -16,10 +16,6 @@ export const NUMBER_FORMAT_FUNCTION= {
         x=parseInt(x).toFixed(0);
         return x === "£-" ? "N/A": (x < 0 ? "-":"") + symbol + Math.abs(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     }, 
-    currencyNumberSymbolEnd: (x, symbol)=>{
-        x=parseInt(x).toFixed(0);
-        return x === "£-" ? "N/A": (x < 0 ? "-":"") + Math.abs(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g) + " " + symbol
-    }, 
     decimal:(x, decimalPoints)=>{
         return parseFloat(x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")).toFixed(decimalPoints);
     }, 
