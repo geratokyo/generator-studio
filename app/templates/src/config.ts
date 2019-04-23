@@ -18,6 +18,11 @@ export const CONFIG = {
     ENV: process.env.NODE_ENV
 }
 
+export var SCREEN_WIDTH = {
+    IS_SMALL: ()=>{ return window.innerWidth <= 560},
+    IS_MEDIUM: ()=>{ return window.innerWidth > 560 && window.innerWidth <= 992},
+    IS_LARGE: ()=>{ return window.innerWidth > 993}
+}
 
 /**
  * Url during the development of the campaign when working locally

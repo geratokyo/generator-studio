@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as Promise from 'bluebird';
-import VerticalAligner from '../VerticalAligner/VerticalAligner';
 export interface DialogProps {
     /**
      * Function to be called when dialog is closed
@@ -43,6 +42,10 @@ export interface DialogProps {
      * Use only in stories
      */
     dialogColor?:string; 
+
+    animateIn?:string; 
+
+    animateOut?:string; 
 }
 
 export interface DialogState {
@@ -64,7 +67,9 @@ export class Dialog extends React.Component<DialogProps, DialogState>{
         wrapHeight:"default",
         wrapWidth:"default", 
         backdropColor:null, 
-        dialogColor:null
+        dialogColor:null, 
+        animateIn:"fadeIn", 
+        animateOut:"fadeOut"
     }
 
     close = (ev?: React.SyntheticEvent<any>) => {
@@ -84,10 +89,10 @@ export class Dialog extends React.Component<DialogProps, DialogState>{
 
     animteExit = () => {
         this.backdropEl.classList.remove("animated", "fadeIn");
-        this.contentWrapperEl.classList.remove("animated", "fadeInUp");
+        this.contentWrapperEl.classList.remove("animated", this.props.animateIn);
 
         this.backdropEl.classList.add("animated", "fadeOut");
-        this.contentWrapperEl.classList.add("animated", "fadeOutDown");
+        this.contentWrapperEl.classList.add("animated", this.props.animateOut);
     }
 
     render() {
@@ -98,7 +103,7 @@ export class Dialog extends React.Component<DialogProps, DialogState>{
         let wrapWidth = "dialog--" + this.props.wrapWidth; 
         return (
             <div className={`dialog ${clz} ${pos} ${spacing} ${wrapHeight} ${wrapWidth}`}>
-                <div className="dialog__backdrop animated fadeIn"
+                <div className="dialog__backdrop animated speed-5 fadeIn"
                     onClick={this.props.close}
                     id="DialogBackdrop"
                     style={{
@@ -106,7 +111,7 @@ export class Dialog extends React.Component<DialogProps, DialogState>{
                     }}
                     ref={e => this.backdropEl = e}></div>
 
-                <div className="dialog__wrapper animated fadeInUp"
+                <div className={`dialog__wrapper animated speed-5 ${this.props.animateIn}`}
                     style={{
                         backgroundColor:this.props.dialogColor
                     }}

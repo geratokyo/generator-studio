@@ -3,14 +3,15 @@ import { Button } from '../Button/Button';
 import { DP } from '../../../constants';
 import { Translation } from '../../../models/models';
 import { EmbedCode } from '../EmbedCode/EmbedCode';
-import { IS_SAFARI, IS_MOBILE } from '../../../config';
+import { DialogProps } from './Dialog';
+import { SCREEN_WIDTH } from '../../../config';
 
 export function SHOW_EMBED_DIALOG(locale: Translation) {
     DP.show((res, rej) => {
         return (
             <EmbedComponent locale={locale} />
        )
-    }, { wrapHeight: "medium-height", wrapWidth: 'medium-width' })
+    }, GET_DIALOG_OPTS())
 }
 
 export function SHOW_INFO_DIALOG(locale: Translation) {
@@ -18,9 +19,24 @@ export function SHOW_INFO_DIALOG(locale: Translation) {
         return (
             <InfoComponent locale={locale} />
         )
-    }, { wrapHeight: "full-height", wrapWidth: 'full-width' })
+    }, GET_DIALOG_OPTS())
 }
 
+
+const GET_DIALOG_OPTS = ():DialogProps=>{
+    if(SCREEN_WIDTH.IS_SMALL()){
+        return {
+            wrapHeight:"full-height", 
+            wrapWidth: 'full-width'
+        }
+    }else{
+        return {
+            wrapHeight:"large-height", 
+            wrapWidth:"full-width", 
+            position:"bottom"
+        }
+    }
+}
 
 
 export const InfoComponent: React.SFC<any> = (props) => {
