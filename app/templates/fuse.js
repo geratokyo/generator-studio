@@ -20,7 +20,7 @@ context(
     class {
         getConfig() {
 
-            let plugins =  [
+            let plugins = [
                 [
                     SassPlugin({
                         outputStyle: this.isProduction && "compressed",
@@ -29,13 +29,13 @@ context(
                         outFile: file => "public/css/" + file,
                         inject: file => `css/${file}`,
                     }),
-                    
+
                 ],
                 EnvPlugin({ NODE_ENV: this.isProduction ? "production" : "development" }),
                 // this.isProduction && WebIndexPlugin(),
                 this.isProduction && QuantumPlugin({
                     css: true,
-                    uglify: true,
+                    uglify: { es6: true },
                     bakeApiIntoBundle: "bundle",
                 }),
             ]
