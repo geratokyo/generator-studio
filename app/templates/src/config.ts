@@ -19,9 +19,9 @@ export const CONFIG = {
 }
 
 export var SCREEN_WIDTH = {
-    IS_SMALL: ()=>{ return window.innerWidth <= 560},
-    IS_MEDIUM: ()=>{ return window.innerWidth > 560 && window.innerWidth <= 992},
-    IS_LARGE: ()=>{ return window.innerWidth > 993}
+    IS_SMALL: () => { return window.innerWidth <= 560 },
+    IS_MEDIUM: () => { return window.innerWidth > 560 && window.innerWidth <= 992 },
+    IS_LARGE: () => { return window.innerWidth > 993 }
 }
 
 /**
@@ -46,7 +46,7 @@ export const PUBLIC_URL = "";
 /**
  * If website is embed on another website
  */
-export const IS_EMBED = (location.href.indexOf("/embed") !== -1);
+export const IS_EMBED = (location.href.indexOf("#embed") !== -1);
 
 
 /**
