@@ -49,7 +49,7 @@ export const InfoComponent: React.SFC<any> = (props) => {
                 </div>
             </div>
             <div className="row">
-                <div className="center col s12 m12  offset-m2" dangerouslySetInnerHTML={infoHtml}></div>
+                <div className="center col s12 m12 " dangerouslySetInnerHTML={infoHtml}></div>
             </div>
         </div>
     )
