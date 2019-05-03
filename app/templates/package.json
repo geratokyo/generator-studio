@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "node fuse watch",
-    "publish": "rm -Rf ./dist && node fuse publish",
+    "watch": "rm -Rf .fusebox && node fuse watch",
+    "publish": "rm -Rf .fusebox && node fuse publish",
     "webpack-watch": "NODE_ENV=development webpack -w --config webpack/dev.config.js",
     "webpack-publish": "NODE_ENV=production webpack -p --config webpack/prod.config.js"
     <% if(isStory){ %> ,"storybook": "start-storybook -p 6006" <% } %>
