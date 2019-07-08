@@ -9,43 +9,43 @@ export interface DialogProps {
     /**
      * Component parent element classname
      */
-    className?: string; 
+    className?: string;
 
     /**
      * Position of the dialog box
      */
-    position?:"top"|"bottom"|"left"|"right"|"middle";
+    position?: "top" | "bottom" | "left" | "right" | "middle";
 
     /**
      * Sets the padding between the dialog box and the dialog content
      */
-    spacing?:"small"|"medium"|"large"; 
+    spacing?: "small" | "medium" | "large";
 
     /**
      * Height of the dialog box
      */
-    wrapHeight?:"default"|"full-height"|"small-height"|"medium-height"|"large-height"; 
+    wrapHeight?: "default" | "full-height" | "small-height" | "medium-height" | "large-height";
 
     /**
      * Width of the dialog box
      */
-    wrapWidth?:"default"|"full-width"|"small-width"|"medium-width"|"large-width";
+    wrapWidth?: "default" | "full-width" | "small-width" | "medium-width" | "large-width";
 
     /**
      * Backdrop background color
      * Use only in stories
      */
-    backdropColor?:string; 
+    backdropColor?: string;
 
     /**
      * Dialog box background color
      * Use only in stories
      */
-    dialogColor?:string; 
+    dialogColor?: string;
 
-    animateIn?:string; 
+    animateIn?: string;
 
-    animateOut?:string; 
+    animateOut?: string;
 }
 
 export interface DialogState {
@@ -60,16 +60,16 @@ export class Dialog extends React.Component<DialogProps, DialogState>{
     }
 
     private static defaultProps: Partial<DialogProps> = {
-        className: "", 
-        position:"middle", 
-        close:()=>{}, 
-        spacing:"medium", 
-        wrapHeight:"default",
-        wrapWidth:"default", 
-        backdropColor:null, 
-        dialogColor:null, 
-        animateIn:"fadeIn", 
-        animateOut:"fadeOut"
+        className: "",
+        position: "middle",
+        close: () => { },
+        spacing: "medium",
+        wrapHeight: "default",
+        wrapWidth: "default",
+        backdropColor: null,
+        dialogColor: null,
+        animateIn: "fadeIn",
+        animateOut: "fadeOut"
     }
 
     close = (ev?: React.SyntheticEvent<any>) => {
@@ -97,23 +97,23 @@ export class Dialog extends React.Component<DialogProps, DialogState>{
 
     render() {
         let clz = this.props.className;
-        let pos = "dialog--" + this.props.position; 
-        let spacing = "dialog--spacing-" + this.props.spacing; 
-        let wrapHeight = "dialog--" + this.props.wrapHeight; 
-        let wrapWidth = "dialog--" + this.props.wrapWidth; 
+        let pos = "dialog--" + this.props.position;
+        let spacing = "dialog--spacing-" + this.props.spacing;
+        let wrapHeight = "dialog--" + this.props.wrapHeight;
+        let wrapWidth = "dialog--" + this.props.wrapWidth;
         return (
             <div className={`dialog ${clz} ${pos} ${spacing} ${wrapHeight} ${wrapWidth}`}>
                 <div className="dialog__backdrop animated speed-5 fadeIn"
                     onClick={this.props.close}
                     id="DialogBackdrop"
                     style={{
-                        backgroundColor:this.props.backdropColor
+                        backgroundColor: this.props.backdropColor
                     }}
                     ref={e => this.backdropEl = e}></div>
 
                 <div className={`dialog__wrapper animated speed-5 ${this.props.animateIn}`}
                     style={{
-                        backgroundColor:this.props.dialogColor
+                        backgroundColor: this.props.dialogColor
                     }}
                     ref={e => this.contentWrapperEl = e}>
                     <div className="dialog__close-button"

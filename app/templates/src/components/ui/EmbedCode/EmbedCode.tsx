@@ -21,8 +21,8 @@ export class EmbedCode extends React.Component<EmbedCodeProps, EmbedCodeState>{
         this.state = {}
     }
 
-    onCopyToClipboard = (evt: any) =>{
-        this.textArea.select(); 
+    onCopyToClipboard = (evt: any) => {
+        this.textArea.select();
         try {
             document.execCommand && document.execCommand('copy');
         } catch (err) {
@@ -57,10 +57,10 @@ export class EmbedCode extends React.Component<EmbedCodeProps, EmbedCodeState>{
                     <p>{props.locale.embedCopy}</p>
                 </div>
 
-                <textarea 
-                    readOnly={true} 
-                    className="embed-textarea center" 
-                    value={a} 
+                <textarea
+                    readOnly={true}
+                    className="embed-textarea center"
+                    value={a}
                     ref={e => this.textArea = e}
                 />
                 <div className="button-wrapper center">

@@ -1,60 +1,60 @@
-import * as React from 'react'; 
+import * as React from 'react';
 import { Translation } from '../../../models/models';
-import { SHOW_INFO_DIALOG,SHOW_EMBED_DIALOG } from '../Dialog/Utils';
+import { SHOW_INFO_DIALOG, SHOW_EMBED_DIALOG } from '../Dialog/Utils';
 
 
 
-export interface SocialButtonsProps{
-    locale:Translation;
+export interface SocialButtonsProps {
+    locale: Translation;
 
 }
 
-export interface SocialButtonsState{
-    twitterLink:string; 
-    facebookLink:string; 
+export interface SocialButtonsState {
+    twitterLink: string;
+    facebookLink: string;
 }
 
 export class SocialButtons extends React.Component<SocialButtonsProps, SocialButtonsState>{
-    constructor(props:SocialButtonsProps){
+    constructor(props: SocialButtonsProps) {
         super(props);
         this.state = {
-            twitterLink:"", 
-            facebookLink:""
+            twitterLink: "",
+            facebookLink: ""
         }
     }
 
-    getTwitterText = ()=>{
-        var metas = document.getElementsByTagName('meta'); 
+    getTwitterText = () => {
+        var metas = document.getElementsByTagName('meta');
 
-        for (var i=0; i<metas.length; i++) { 
-           if (metas[i].getAttribute("name") == "twitter:description") { 
-              return metas[i].getAttribute("content"); 
-           } 
-        } 
-     
-         return "";
+        for (var i = 0; i < metas.length; i++) {
+            if (metas[i].getAttribute("name") == "twitter:description") {
+                return metas[i].getAttribute("content");
+            }
+        }
+
+        return "";
     }
 
 
-    componentDidMount(){
-        let tw = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(this.getTwitterText()), 
+    componentDidMount() {
+        let tw = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(this.getTwitterText()),
             fb = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL);
-        
-        this.setState({twitterLink:tw, facebookLink:fb});
+
+        this.setState({ twitterLink: tw, facebookLink: fb });
         this.forceUpdate();
     }
 
-    onEmbedClick = () =>{
+    onEmbedClick = () => {
         SHOW_EMBED_DIALOG(this.props.locale)
     }
 
-    onInfoClick = () =>{
+    onInfoClick = () => {
         SHOW_INFO_DIALOG(this.props.locale)
     }
 
-    render(){
-        let props = this.props, 
-            state = this.state; 
+    render() {
+        let props = this.props,
+            state = this.state;
 
         return (
             <div className="social-buttons-container">
@@ -69,7 +69,7 @@ export class SocialButtons extends React.Component<SocialButtonsProps, SocialBut
                 </div>
                 <div className="share-button info" onClick={this.onInfoClick}>
                     <i className="icon-info"></i>
-                </div>        
+                </div>
             </div>
         )
     }

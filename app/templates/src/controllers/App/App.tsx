@@ -16,22 +16,23 @@ import {
 import HomePage from '../../pages/Homepage/Homepage';
 import DATA_SERVICE from '../../services/DataService';
 import FullPage from '../../pages/FullPage/FullPage';
+import { Spinner } from '../../components/ui/Spinner/Spinner';
 
 export const STATE_KEY = 'app';
 
 class App extends React.Component<AppProps, inAppState>{
-    constructor(props:AppProps) {
+    constructor(props: AppProps) {
         super(props);
         this.state = inAppInitialState;
     }
 
-    componentDidMount(){
-        if(DATA_SERVICE.isDataLoaded){
-            
-            this.props.loadData(DATA_SERVICE.getData()); 
-        }else{
-            DATA_SERVICE.load().then((e)=>{
-                this.props.loadData(e); 
+    componentDidMount() {
+        if (DATA_SERVICE.isDataLoaded) {
+
+            this.props.loadData(DATA_SERVICE.getData());
+        } else {
+            DATA_SERVICE.load().then((e) => {
+                this.props.loadData(e);
             })
         }
     }
@@ -39,6 +40,10 @@ class App extends React.Component<AppProps, inAppState>{
     render() {
         let state = this.state,
             props = this.props;
+
+        if (!DATA_SERVICE.isDataLoaded) {
+            return <Spinner />
+        }
         return (
             <div className={`app`}>
                 <Router hashType="noslash">
@@ -59,6 +64,6 @@ function mapStateToProps(state: any, ownProps) {
 }
 
 
-const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({loadData: ACTIONS.DATA_LOADED}, dispatch);
+const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({ loadData: ACTIONS.DATA_LOADED }, dispatch);
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

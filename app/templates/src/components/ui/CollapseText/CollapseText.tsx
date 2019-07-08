@@ -1,25 +1,25 @@
-import * as React from 'react'; 
+import * as React from 'react';
 
-export interface CollapseTextProps{
+export interface CollapseTextProps {
 }
 
-export interface CollapseTextState{
-    isShown:boolean;
+export interface CollapseTextState {
+    isShown: boolean;
 }
 
 export class CollapseText extends React.Component<CollapseTextProps, CollapseTextState>{
-    constructor(p:CollapseTextProps){
+    constructor(p: CollapseTextProps) {
         super(p);
-        this.state = {isShown:false}
+        this.state = { isShown: false }
     }
 
-    toggleText = ()=>{
-        this.setState({isShown: !this.state.isShown});
+    toggleText = () => {
+        this.setState({ isShown: !this.state.isShown });
     }
 
-    render(){
-        let props = this.props, 
-            state = this.state; 
+    render() {
+        let props = this.props,
+            state = this.state;
         return (
             <div className="collapse-text">
                 <div className="collapse-text__content"

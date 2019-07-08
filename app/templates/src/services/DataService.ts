@@ -1,34 +1,34 @@
-import {Translation} from '../models/models';
+import { Translation } from '../models/models';
 import fb from './Firebase'
-import * as Promise from 'bluebird'; 
+import * as Promise from 'bluebird';
 
 
-export class DataService{
-    app:any;
-    database:any; 
-    translations:Translation;
-    locale:string;
-    def:any;
+export class DataService {
+    app: any;
+    database: any;
+    translations: Translation;
+    locale: string;
+    def: any;
 
-    data:any;
-    isDataLoaded:boolean;
-    constructor(){
+    data: any;
+    isDataLoaded: boolean;
+    constructor() {
         let w: any = window;
-        this.locale = w.__LOCALE__; 
+        this.locale = w.__LOCALE__;
 
         this.isDataLoaded = false;
-        
-        this.database = fb.database(); 
+
+        this.database = fb.database();
     }
 
-    load(){
-        return new Promise((res, rej)=>{
+    load() {
+        return new Promise((res, rej) => {
 
-            this.database.ref("/"+this.locale).on("value",
-                (e: any)=>{
+            this.database.ref("/" + this.locale).on("value",
+                (e: any) => {
                     this.data = e.val() as any;
-    
-    
+
+
                     this.isDataLoaded = true;
                     res(this.data);
                 }
@@ -37,25 +37,25 @@ export class DataService{
     }
 
 
-    getByKey = (key:string)=>{
+    getByKey = (key: string) => {
         return this.data[key];
     }
 
 
-    getNavBar = ()=>{
-        return this.data.navBar; 
+    getNavBar = () => {
+        return this.data.navBar;
     }
 
-    getLocale= ()=>{
-        return this.data.locale; 
+    getLocale = () => {
+        return this.data.locale;
     }
-    
-    getData(){
+
+    getData() {
         return this.data;
     }
 
 }
 
-const DATA_SERVICE = new DataService(); 
+const DATA_SERVICE = new DataService();
 
 export default DATA_SERVICE;

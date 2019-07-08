@@ -1,14 +1,14 @@
-import * as React from 'react'; 
+import * as React from 'react';
 import { IS_MOBILE } from '../../../config';
 
 
-export interface ButtonProps{
-    onClick:(e:any)=>void;
-    className?:string;
+export interface ButtonProps {
+    onClick: (e: any) => void;
+    className?: string;
 }
 
-export const Button:React.SFC<ButtonProps> = (props)=>{
-    let cls = props.className || ""; 
+export const Button: React.SFC<ButtonProps> = (props) => {
+    let cls = props.className || "";
     return (
         <div className={"button " + cls} onClick={props.onClick} >
             <div className="button__label">
@@ -19,21 +19,21 @@ export const Button:React.SFC<ButtonProps> = (props)=>{
 }
 
 
-export interface LinkButtonProps{
-    className?:string;
-    href:string;
+export interface LinkButtonProps {
+    className?: string;
+    href: string;
 }
 
-function redirectTo(e:React.SyntheticEvent<any>){
-    if(IS_MOBILE){
-        let el:HTMLAnchorElement = e.currentTarget as HTMLAnchorElement; 
-    
+function redirectTo(e: React.SyntheticEvent<any>) {
+    if (IS_MOBILE) {
+        let el: HTMLAnchorElement = e.currentTarget as HTMLAnchorElement;
+
         window.location.href = el.href;
     }
 }
 
-export const LinkButton:React.SFC<LinkButtonProps> = (props)=>{
-    let cls = props.className || ""; 
+export const LinkButton: React.SFC<LinkButtonProps> = (props) => {
+    let cls = props.className || "";
     // {props.label}
     return (
         <a href={props.href || ""} className={"button " + cls} onTouchStart={redirectTo}>

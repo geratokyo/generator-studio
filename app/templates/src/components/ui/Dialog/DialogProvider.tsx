@@ -23,7 +23,7 @@ export class DialogProvider {
             var props = {
                 ...dialogProps,
                 visible: true,
-                close: ()=>{ this.hide(resolve, reject )}
+                close: () => { this.hide(resolve, reject) }
             };
             ReactDOM.render(
                 <Dialog {...props}
@@ -34,14 +34,14 @@ export class DialogProvider {
         });
     }
 
-    hide = (resolve?:any, reject?:any) => {
-        this.dialogEl.close().then((res)=>{
-            if(res){
+    hide = (resolve?: any, reject?: any) => {
+        this.dialogEl.close().then((res) => {
+            if (res) {
                 ReactDOM.unmountComponentAtNode(this.el);
                 // this.el.classList.remove("shown")
                 // this.el.innerHTML = "";
                 resolve && resolve()
             }
-        },()=>{})
+        }, () => { })
     }
 }

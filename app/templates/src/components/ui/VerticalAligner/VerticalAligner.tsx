@@ -1,10 +1,10 @@
-import * as React from 'react'; 
+import * as React from 'react';
 
 function VerticalAligner(props) {
     return (
         <div className="va-container">
             <div className="va-content">
-                { props.children }
+                {props.children}
             </div>
         </div>
     )

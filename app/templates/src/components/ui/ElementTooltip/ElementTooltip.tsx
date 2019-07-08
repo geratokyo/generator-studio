@@ -74,7 +74,7 @@ export class ElementTooltip extends React.Component<ElementTooltipProps, Element
                 ref={e => this.contentEl = e}
                 onBlur={() => {
 
-                        this.blurContent()
+                    this.blurContent()
 
                 }}
                 data-visible={state.contentVisible}>
@@ -84,7 +84,7 @@ export class ElementTooltip extends React.Component<ElementTooltipProps, Element
                 </div>
                 <div className="element-tooltip-content-container z-depth-1"
                     onClick={() => {
-                            this.blurContent()
+                        this.blurContent()
                     }}
                 >
                     {props.children}

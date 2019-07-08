@@ -10,7 +10,7 @@ export function SHOW_EMBED_DIALOG(locale: Translation) {
     DP.show((res, rej) => {
         return (
             <EmbedComponent locale={locale} />
-       )
+        )
     }, GET_DIALOG_OPTS())
 }
 
@@ -23,17 +23,17 @@ export function SHOW_INFO_DIALOG(locale: Translation) {
 }
 
 
-const GET_DIALOG_OPTS = ():DialogProps=>{
-    if(SCREEN_WIDTH.IS_SMALL()){
+const GET_DIALOG_OPTS = (): DialogProps => {
+    if (SCREEN_WIDTH.IS_SMALL()) {
         return {
-            wrapHeight:"full-height", 
+            wrapHeight: "full-height",
             wrapWidth: 'full-width'
         }
-    }else{
+    } else {
         return {
-            wrapHeight:"large-height", 
-            wrapWidth:"full-width", 
-            position:"bottom"
+            wrapHeight: "large-height",
+            wrapWidth: "full-width",
+            position: "bottom"
         }
     }
 }
