@@ -3,11 +3,11 @@ import { Translation } from '../../../models/models';
 import { Button } from '../Button/Button';
 import { RES_URL } from '../../../config';
 import VerticalAligner from '../VerticalAligner/VerticalAligner';
+import I18n from '../../../services/I18n';
 
 
 export interface EmbedCodeProps {
     embedded?: string;
-    locale: Translation;
     height: number;
 }
 
@@ -38,15 +38,15 @@ export class EmbedCode extends React.Component<EmbedCodeProps, EmbedCodeState>{
         let url = (document.URL).split("#")[0];
 
         url += specificHash;
-        let campaignName = props.locale.campaignName.split(" ").join("-").toLocaleLowerCase();
+        let campaignName = I18n.t("campaignName").split(" ").join("-").toLocaleLowerCase();
         let a: string = [
             '<div class="test-app" style="width:100%;height:', props.height, 'px;margin:0 auto;background:#fff;position:relative;">',
             '<iframe data-url="', url, '" src="', url, '" style="position:absolute;top:0;left:0;width:100%;height:100%; border:1px solid #ccc;"></iframe></div>',
             '<div class="meframe"></div>',
             '<br/>',
             '<div>',
-            '<a href="', (document.URL).split("#")[0], '" target="_blank">', props.locale.campaignName, '</a> by ',
-            '<a href="', props.locale.clientUrl, '" target="_blank">', props.locale.clientTitle, '</a>',
+            '<a href="', (document.URL).split("#")[0], '" target="_blank">', I18n.t("campaignName"), '</a> by ',
+            '<a href="', I18n.t("clientUrl"), '" target="_blank">', I18n.t("clientTitle"), '</a>',
             '</div>',
             '</div>',
             '<br/>'].join("");
@@ -54,7 +54,7 @@ export class EmbedCode extends React.Component<EmbedCodeProps, EmbedCodeState>{
         return (
             <div className="embed-code-container">
                 <div className="embed-copy-container">
-                    <p>{props.locale.embedCopy}</p>
+                    <p>{I18n.t("embedCopy")}</p>
                 </div>
 
                 <textarea
@@ -67,7 +67,7 @@ export class EmbedCode extends React.Component<EmbedCodeProps, EmbedCodeState>{
                     <Button
                         className="embed-copy-btn main black-text"
                         onClick={this.onCopyToClipboard}>
-                        {props.locale.copyToClipboard}
+                        {I18n.t("copyToClipboard")}
                     </Button>
                 </div>
             </div>

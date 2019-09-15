@@ -5,7 +5,6 @@ import { SHOW_INFO_DIALOG, SHOW_EMBED_DIALOG } from '../Dialog/Utils';
 
 
 export interface SocialButtonsProps {
-    locale: Translation;
 
 }
 
@@ -45,11 +44,11 @@ export class SocialButtons extends React.Component<SocialButtonsProps, SocialBut
     }
 
     onEmbedClick = () => {
-        SHOW_EMBED_DIALOG(this.props.locale)
+        SHOW_EMBED_DIALOG()
     }
 
     onInfoClick = () => {
-        SHOW_INFO_DIALOG(this.props.locale)
+        SHOW_INFO_DIALOG()
     }
 
     render() {

@@ -24,7 +24,7 @@ export class DataService {
     load() {
         return new Promise((res, rej) => {
 
-            this.database.ref("/" + this.locale).on("value",
+            this.database.ref("/").on("value",
                 (e: any) => {
                     this.data = e.val() as any;
 
