@@ -15,7 +15,6 @@ import {
 
 import HomePage from '../../pages/Homepage/Homepage';
 import DATA_SERVICE from '../../services/DataService';
-import FullPage from '../../pages/FullPage/FullPage';
 import { Spinner } from '../../components/ui/Spinner/Spinner';
 
 export const STATE_KEY = 'app';
@@ -49,7 +48,7 @@ class App extends React.Component<AppProps, inAppState>{
                 <Router hashType="noslash">
                     <Switch>
                         <Route exact path="/" component={HomePage} />
-                        <Route exact path="/full-content" component={FullPage} />
+                        <Route exact path="/full-content" component={HomePage} />
                     </Switch>
                 </Router>
             </div>
