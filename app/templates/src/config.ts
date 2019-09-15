@@ -85,6 +85,6 @@ export const GET_BROWSER = () => {
     } else {
         wBrowser = "unk";
     }
-    console.log('wBrowser', wBrowser);
+    // console.log('wBrowser', wBrowser);
     return wBrowser;
 }
