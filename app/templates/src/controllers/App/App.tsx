@@ -9,7 +9,7 @@ import {
     Switch,
 } from 'react-router-dom'
 
-import HomePage from '../../pages/Homepage/Homepage';
+import Splash from '../../pages/Splash/Splash';
 import DATA_SERVICE from '../../services/DataService';
 import { Spinner } from '../../components/ui/Spinner/Spinner';
 
@@ -40,7 +40,7 @@ class App extends React.Component<AppProps, inAppState>{
             <div className={`app`}>
                 <Router hashType="noslash">
                     <Switch>
-                        <Route exact path="/" component={HomePage} />
+                        <Route exact path="/" component={Splash} />
                     </Switch>
                 </Router>
             </div>

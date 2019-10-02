@@ -5,30 +5,32 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { IStoreState } from '../../_reducers';
 import { Translation } from '../../models/models';
 
-export interface HomePageProps extends ReactRedux.DispatchProp<any>{
+export interface SplashProps extends ReactRedux.DispatchProp<any>{
     className?:string;
     locale:Translation;
 }
 
-const INIT_STATE:HomePageState = {
+const INIT_STATE:SplashState = {
 
 }
 
-export interface HomePageState{
+export interface SplashState{
 
 }
 
-export class HomePage extends React.Component<HomePageProps, HomePageState>{
+export class Splash extends React.Component<SplashProps, SplashState>{
 
-    constructor(props:HomePageProps){
+    constructor(props:SplashProps){
         super(props);
         this.state = INIT_STATE;
     }
 
     render(){
-        let cls = this.props.className || "";
+        const { props, state } = this;
+        const cls = this.props.className || "";
+
         return (
-            <div className={"home-page " + cls}>
+            <div className={"splash " + cls}>
                 <div className="row">
                     <div className="col s12 m12 l12">
                         <h1>Studio Generator</h1>
@@ -39,7 +41,7 @@ export class HomePage extends React.Component<HomePageProps, HomePageState>{
     }
 }
 
-const mapStateToProps = (state: IStoreState, ownProps):Partial<HomePageProps> =>{
+const mapStateToProps = (state: IStoreState, ownProps):Partial<SplashProps> =>{
     return {
         locale:state.app.locale
     }
@@ -48,4 +50,4 @@ const mapStateToProps = (state: IStoreState, ownProps):Partial<HomePageProps> =>
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({
   }, dispatch);
 
-export default connect(mapStateToProps,mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps,mapDispatchToProps)(Splash);
