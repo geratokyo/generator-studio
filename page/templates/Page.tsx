@@ -1,15 +1,12 @@
-
-import * as React from 'react'; 
+import * as React from 'react';
 import * as ReactRedux from 'react-redux';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-  
 import { IStoreState } from '../../_reducers';
-import { iActionType, Translation } from '../../models/models';
+import { Translation } from '../../models/models';
 import { RouteComponentProps } from 'react-router';
 
-
-export interface <%= uCamelCName %>Props extends ReactRedux.DispatchProp<any>, RouteComponentProps<any>{
+export interface <%= uCamelCName %>Props extends ReactRedux.DispatchProp<any>, RouteComponentProps<any> {
     className?:string;
     locale:Translation;
 }
@@ -22,27 +19,23 @@ export interface <%= uCamelCName %>State{
 
 }
 
-
-export class <%= uCamelCName %> extends React.Component<<%= uCamelCName %>Props, <%= uCamelCName %>State>{
+export class <%= uCamelCName %> extends React.Component<<%= uCamelCName %>Props, <%= uCamelCName %>State> {
 
     constructor(props:<%= uCamelCName %>Props){
-        super(props); 
-        this.state = INIT_STATE; 
+        super(props);
+        this.state = INIT_STATE;
     }
 
     render(){
-        let {props, state} = this;
-        let cls = this.props.className || "";
+        const { props, state } = this;
+        const cls = this.props.className || "";
         return (
             <div className={"<%= kebabCName %> " + cls}>
-                
+
             </div>
         )
     }
 }
-
-
-
 
 const mapStateToProps = (state: IStoreState, ownProps):Partial<<%= uCamelCName %>Props> =>{
     return {

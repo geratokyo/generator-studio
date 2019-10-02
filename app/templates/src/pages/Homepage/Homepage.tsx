@@ -1,12 +1,9 @@
-import * as React from 'react'; 
+import * as React from 'react';
 import * as ReactRedux from 'react-redux';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-  
 import { IStoreState } from '../../_reducers';
-import { ACTIONS } from './Actions';
-import { iActionType, Translation } from '../../models/models';
-
+import { Translation } from '../../models/models';
 
 export interface HomePageProps extends ReactRedux.DispatchProp<any>{
     className?:string;
@@ -21,12 +18,11 @@ export interface HomePageState{
 
 }
 
-
 export class HomePage extends React.Component<HomePageProps, HomePageState>{
 
     constructor(props:HomePageProps){
-        super(props); 
-        this.state = INIT_STATE; 
+        super(props);
+        this.state = INIT_STATE;
     }
 
     render(){
@@ -42,9 +38,6 @@ export class HomePage extends React.Component<HomePageProps, HomePageState>{
         )
     }
 }
-
-
-
 
 const mapStateToProps = (state: IStoreState, ownProps):Partial<HomePageProps> =>{
     return {

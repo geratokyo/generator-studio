@@ -1,4 +1,3 @@
-
 declare var firebase;
 
 /**
@@ -13,4 +12,4 @@ export const FIREBASE_CONF = {
     messagingSenderId: ""
 }
 
-export default !firebase.apps.length ? firebase.initializeApp(FIREBASE_CONF) : firebase.app();s
+export default !firebase.apps.length ? firebase.initializeApp(FIREBASE_CONF) : firebase.app();

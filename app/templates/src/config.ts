@@ -37,8 +37,8 @@ export const DEV_URL = "";
 export const VERVE_URL = "";
 
 /**
- * 
- * Url for when the campaign goes live 
+ *
+ * Url for when the campaign goes live
  * Final client Url
  */
 export const PUBLIC_URL = "";
@@ -85,6 +85,5 @@ export const GET_BROWSER = () => {
     } else {
         wBrowser = "unk";
     }
-    console.log('wBrowser', wBrowser);
     return wBrowser;
 }

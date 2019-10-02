@@ -1,21 +1,16 @@
 import * as React from 'react';
-import { Reducer } from './Reducer';
-import { AppProps, inAppState, WINDOW_VIEWS, inAppInitialState, AppInitState, AppState } from './StateAndProps';
-import { ACTIONS, TYPES } from './Actions';
-import * as _ from 'lodash';
+import { AppProps, inAppState, inAppInitialState } from './StateAndProps';
+import { ACTIONS } from './Actions';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import {
     HashRouter as Router,
     Route,
-    Link,
     Switch,
-    Redirect
 } from 'react-router-dom'
 
 import HomePage from '../../pages/Homepage/Homepage';
 import DATA_SERVICE from '../../services/DataService';
-import FullPage from '../../pages/FullPage/FullPage';
 import { Spinner } from '../../components/ui/Spinner/Spinner';
 
 export const STATE_KEY = 'app';
@@ -38,9 +33,6 @@ class App extends React.Component<AppProps, inAppState>{
     }
 
     render() {
-        let state = this.state,
-            props = this.props;
-
         if (!DATA_SERVICE.isDataLoaded) {
             return <Spinner />
         }
@@ -49,7 +41,6 @@ class App extends React.Component<AppProps, inAppState>{
                 <Router hashType="noslash">
                     <Switch>
                         <Route exact path="/" component={HomePage} />
-                        <Route exact path="/full-content" component={FullPage} />
                     </Switch>
                 </Router>
             </div>
@@ -62,7 +53,6 @@ function mapStateToProps(state: any, ownProps) {
         appState: state.app
     }
 }
-
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({ loadData: ACTIONS.DATA_LOADED }, dispatch);
 

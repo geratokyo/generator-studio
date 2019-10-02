@@ -1,10 +1,9 @@
-import * as React from 'react';
-import {CONFIG} from '../config';
+import { CONFIG } from '../config';
 import axios from 'axios';
 
 export interface requestParams{
-    url:string, 
-    method:string, 
+    url:string,
+    method:string,
     data?:any,
     dataType?:string
 }
@@ -41,12 +40,10 @@ class Network{
         let s = this.request("delete", url, data);
         return s;
     }
-    
+
 }
-
-
 export class Model extends Network{
-    
+
     constructor(v){
         super(v)
     }

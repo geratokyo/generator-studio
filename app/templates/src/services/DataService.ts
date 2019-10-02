@@ -1,8 +1,6 @@
 import { Translation } from '../models/models';
 import fb from './Firebase'
 import * as Promise from 'bluebird';
-
-
 export class DataService {
     app: any;
     database: any;
@@ -35,7 +33,6 @@ export class DataService {
             )
         })
     }
-
 
     getByKey = (key: string) => {
         return this.data[key];
