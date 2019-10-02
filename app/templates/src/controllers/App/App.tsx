@@ -22,20 +22,24 @@ class App extends React.Component<AppProps, inAppState>{
     }
 
     componentDidMount() {
-        if (DATA_SERVICE.isDataLoaded) {
+        /*******************************************************
+        * Update Firebase credentials and uncomment to load data
+        ********************************************************/
 
-            this.props.loadData(DATA_SERVICE.getData());
-        } else {
-            DATA_SERVICE.load().then((e) => {
-                this.props.loadData(e);
-            })
-        }
+        // if (DATA_SERVICE.isDataLoaded) {
+
+        //     this.props.loadData(DATA_SERVICE.getData());
+        // } else {
+        //     DATA_SERVICE.load().then((e) => {
+        //         this.props.loadData(e);
+        //     })
+        // }
     }
 
     render() {
-        if (!DATA_SERVICE.isDataLoaded) {
-            return <Spinner />
-        }
+        // if (!DATA_SERVICE.isDataLoaded) {
+        //     return <Spinner />
+        // }
         return (
             <div className={`app`}>
                 <Router hashType="noslash">
