@@ -7,6 +7,11 @@ export interface Dictionary<T> {
     [idx: string]: T;
 }
 
+export interface iValue {
+    key: string | number;
+    value: React.ReactNode;
+}
+
 export interface Translation {
     campaignName: string;
     campaignTitle: string;
