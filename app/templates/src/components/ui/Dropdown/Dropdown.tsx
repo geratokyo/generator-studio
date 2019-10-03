@@ -27,12 +27,29 @@ interface DropdownState {
 }
 
 export class Dropdown extends React.Component<DropdownProps, DropdownState> {
+    el: HTMLDivElement;
+
     constructor(props: DropdownProps) {
         super(props);
         this.state = {
             optionSelected: null,
             isListExpanded: false
         };
+    }
+
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleOutsideClick, false);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleOutsideClick, false);
+    }
+
+    handleOutsideClick = (e) => {
+        if (this.el.contains(e.target)) {
+            return
+        }
+        this.setState({ isListExpanded: false })
     }
 
     onItemSelect = (item: iValue) => {
@@ -50,7 +67,7 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
             cls = props.className || "";
 
         return (
-            <div className="dropdown__wrapper">
+            <div className="dropdown__wrapper" ref={el => this.el = el}>
                 {props.label && (
                     <label className="dropdown__label" id="dropdown-label">
                         {props.label}
@@ -71,13 +88,15 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
                         </div>
                     </li>
                     {state.isListExpanded && (
-                        <ul className="dropdown__options">
+                        <ul className="dropdown__options" role="list">
                             {props.items.map((item, idx) => (
                                 <li key={item.key}
                                     className="dropdown__list-item"
                                     id={`option-${idx + 1}`}
                                     tabIndex={0}
+                                    role="listitem"
                                     onClick={() => this.onItemSelect(item)}
+                                    onKeyDown={(e) => e.keyCode === 13 ? this.onItemSelect(item) : null}
                                 >
                                     {item.value}
                                 </li>
