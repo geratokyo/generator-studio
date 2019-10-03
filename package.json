@@ -1,6 +1,6 @@
 {
   "name": "generator-studio",
-  "version": "0.0.17",
+  "version": "0.0.19",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "author": "Gera Kourtidis",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.15",
     "yeoman-generator": "^3.1.1"
   },
   "bugs": {

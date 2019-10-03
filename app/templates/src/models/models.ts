@@ -1,4 +1,3 @@
-
 export interface iActionType {
     type: number,
     data: any | any[],
@@ -8,6 +7,10 @@ export interface Dictionary<T> {
     [idx: string]: T;
 }
 
+export interface iValue {
+    key: string | number;
+    value: React.ReactNode;
+}
 
 export interface Translation {
     campaignName: string;
@@ -32,7 +35,6 @@ export interface Translation {
     valueMapDesc: string[];
 }
 
-
 export const INIT_TRANSLATIONS: Translation = {
     campaignName: "",
     campaignTitle: "",
@@ -55,8 +57,6 @@ export const INIT_TRANSLATIONS: Translation = {
     altText: "",
     valueMapDesc: []
 }
-
-
 
 export interface iData {
     key: string;

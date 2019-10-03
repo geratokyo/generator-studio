@@ -1,5 +1,4 @@
 import { Dictionary, Translation } from "../models/models";
-
 export class I18n {
     locale: any;
     lang: string;

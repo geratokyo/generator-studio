@@ -4,24 +4,23 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { IStoreState } from '../../_reducers';
 import { Translation } from '../../models/models';
-import { RouteComponentProps } from 'react-router';
 
-export interface <%= uCamelCName %>Props extends ReactRedux.DispatchProp<any>, RouteComponentProps<any> {
+export interface SplashProps extends ReactRedux.DispatchProp<any>{
     className?:string;
     locale:Translation;
 }
 
-const INIT_STATE:<%= uCamelCName %>State = {
+const INIT_STATE:SplashState = {
 
 }
 
-export interface <%= uCamelCName %>State{
+export interface SplashState{
 
 }
 
-export class <%= uCamelCName %> extends React.Component<<%= uCamelCName %>Props, <%= uCamelCName %>State> {
+export class Splash extends React.Component<SplashProps, SplashState>{
 
-    constructor(props:<%= uCamelCName %>Props){
+    constructor(props:SplashProps){
         super(props);
         this.state = INIT_STATE;
     }
@@ -29,15 +28,20 @@ export class <%= uCamelCName %> extends React.Component<<%= uCamelCName %>Props,
     render(){
         const { props, state } = this;
         const cls = this.props.className || "";
-        return (
-            <div className={"<%= kebabCName %> " + cls}>
 
+        return (
+            <div className={"splash " + cls}>
+                <div className="row">
+                    <div className="col s12 m12 l12">
+                        <h1>Studio Generator</h1>
+                    </div>
+                </div>
             </div>
         )
     }
 }
 
-const mapStateToProps = (state: IStoreState, ownProps):Partial<<%= uCamelCName %>Props> =>{
+const mapStateToProps = (state: IStoreState, ownProps):Partial<SplashProps> =>{
     return {
         locale:state.app.locale
     }
@@ -46,4 +50,4 @@ const mapStateToProps = (state: IStoreState, ownProps):Partial<<%= uCamelCName %
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({
   }, dispatch);
 
-export default connect(mapStateToProps,mapDispatchToProps)(<%= uCamelCName %>);
+export default connect(mapStateToProps,mapDispatchToProps)(Splash);

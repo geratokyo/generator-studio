@@ -1,7 +1,5 @@
-import * as ReactRedux from 'react-redux'; 
-import { iActionType, Translation, INIT_TRANSLATIONS } from '../../models/models';
+import * as ReactRedux from 'react-redux';
 export const STATE_KEY = '<%= lowerCName %>';
-
 
 export interface <%= uCamelCName %>Props extends ReactRedux.DispatchProp<any>{
 
