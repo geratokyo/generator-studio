@@ -1,5 +1,4 @@
-import * as React from 'react'; 
-
+import * as React from 'react';
 
 export interface <%= uCamelCName %>Props{
     className?:string;
@@ -16,11 +15,12 @@ export class <%= uCamelCName %> extends React.Component<<%= uCamelCName %>Props,
     }
 
     render(){
-        let {props, state} = this,
+        const { props, state } = this,
             cls = this.props.className || "";
+
         return (
             <div className={"<%= kebabCName %> " + cls} ref={e=> this.el= e}>
-                
+
             </div>
         )
     }

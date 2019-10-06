@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { CONFIG } from '../config';
 import axios from 'axios';
+
+import { CONFIG } from '../config';
 
 export interface requestParams {
     url: string,
@@ -43,8 +43,6 @@ class Network {
     }
 
 }
-
-
 export class Model extends Network {
 
     constructor(v) {

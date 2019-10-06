@@ -1,7 +1,7 @@
-import { Translation } from '../models/models';
-import fb from './Firebase'
 import * as Promise from 'bluebird';
 
+import { Translation } from '../models/models';
+import fb from './Firebase'
 
 export class DataService {
     app: any;
@@ -35,7 +35,6 @@ export class DataService {
             )
         })
     }
-
 
     getByKey = (key: string) => {
         return this.data[key];
