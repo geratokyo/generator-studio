@@ -2,9 +2,10 @@ import * as React from 'react';
 import * as ReactRedux from 'react-redux';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
+import { RouteComponentProps } from 'react-router';
+
 import { IStoreState } from '../../_reducers';
 import { Translation } from '../../models/models';
-import { RouteComponentProps } from 'react-router';
 
 export interface <%= uCamelCName %>Props extends ReactRedux.DispatchProp<any>, RouteComponentProps<any> {
     className?:string;

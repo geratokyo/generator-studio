@@ -1,8 +1,9 @@
 import * as React from 'react';
+
 import { iValue } from '../../../models/models';
 
-interface DropdownProps{
-    className?:string;
+interface DropdownProps {
+    className?: string;
     /**
      * The dropdown component expects an array of key value pairs
      */

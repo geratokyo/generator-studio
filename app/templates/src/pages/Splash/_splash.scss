@@ -1,20 +1,17 @@
-.splash{
-
+.splash {
 }
 
-@include SmallDevice{
-    .splash{
+@include SmallDevice {
+    .splash {
     }
 }
 
-
-@include MediumDevice{
-    .splash{
+@include MediumDevice {
+    .splash {
     }
 }
 
-@include OnEmbedDevice(){
-    .splash{
-
+@include OnEmbedDevice() {
+    .splash {
     }
 }

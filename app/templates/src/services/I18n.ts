@@ -1,4 +1,5 @@
 import { Dictionary, Translation } from "../models/models";
+
 export class I18n {
     locale: any;
     lang: string;
@@ -11,7 +12,7 @@ export class I18n {
     }
 
     t = (key: string) => {
-        //get the text from locale or the [key]
+        // get the text from locale or the [key]
         const loca = this.locale; //store.getState().app.locale;
         if (loca) {
             const v = loca[key];

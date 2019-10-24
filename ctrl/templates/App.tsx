@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { <%= uCamelCName %>Props, in<%= uCamelCName %>State, in<%= uCamelCName %>InitialState } from './StateAndProps';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
+
+import { <%= uCamelCName %>Props, in<%= uCamelCName %>State, in<%= uCamelCName %>InitialState } from './StateAndProps';
 
 export const STATE_KEY = '<%= lowerCName %>';
 

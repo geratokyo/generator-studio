@@ -3,10 +3,10 @@ export const TYPES = {
 }
 
 export const ACTIONS = {
-    DATA_LOADED:(e)=>{
+    DATA_LOADED: (e) => {
         return {
-            type:TYPES.DATA_LOADED,
-            data:e
+            type: TYPES.DATA_LOADED,
+            data: e
         }
     }
 }

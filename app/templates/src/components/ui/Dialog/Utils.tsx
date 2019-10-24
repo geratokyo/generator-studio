@@ -5,19 +5,20 @@ import { Translation } from '../../../models/models';
 import { EmbedCode } from '../EmbedCode/EmbedCode';
 import { DialogProps } from './Dialog';
 import { SCREEN_WIDTH } from '../../../config';
+import I18n from '../../../services/I18n';
 
-export function SHOW_EMBED_DIALOG(locale: Translation) {
+export function SHOW_EMBED_DIALOG() {
     DP.show((res, rej) => {
         return (
-            <EmbedComponent locale={locale} />
+            <EmbedComponent />
         )
     }, GET_DIALOG_OPTS())
 }
 
-export function SHOW_INFO_DIALOG(locale: Translation) {
+export function SHOW_INFO_DIALOG() {
     DP.show((res, rej) => {
         return (
-            <InfoComponent locale={locale} />
+            <InfoComponent />
         )
     }, GET_DIALOG_OPTS())
 }
@@ -40,12 +41,12 @@ const GET_DIALOG_OPTS = (): DialogProps => {
 
 
 export const InfoComponent: React.SFC<any> = (props) => {
-    let infoHtml = { __html: props.locale.informationCopy }
+    let infoHtml = { __html: I18n.t("informationCopy") }
     return (
         <div className="info-container container">
             <div className="row">
                 <div className="col s12">
-                    <h1 className="center dialog__header">{props.locale.infoTitle}</h1>
+                    <h1 className="center dialog__header">{I18n.t("infoTitle")}</h1>
                 </div>
             </div>
             <div className="row">
@@ -61,13 +62,12 @@ export const EmbedComponent: React.SFC<any> = (props) => {
 
             <div className="row">
                 <div className="col s12">
-                    <h1 className="dialog__header center">{props.locale.embedCopyTitle}</h1>
+                    <h1 className="dialog__header center">{I18n.t("embedCopyTitle")}</h1>
                 </div>
             </div>
             <div className="row">
                 <div className="col s12">
                     <EmbedCode
-                        locale={props.locale}
                         height={600} />
                 </div>
             </div>

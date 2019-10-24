@@ -2,30 +2,31 @@ import * as React from 'react';
 import * as ReactRedux from 'react-redux';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
+
 import { IStoreState } from '../../_reducers';
 import { Translation } from '../../models/models';
 
-export interface SplashProps extends ReactRedux.DispatchProp<any>{
-    className?:string;
-    locale:Translation;
+export interface SplashProps extends ReactRedux.DispatchProp<any> {
+    className?: string;
+    locale: Translation;
 }
 
-const INIT_STATE:SplashState = {
+const INIT_STATE: SplashState = {
 
 }
 
-export interface SplashState{
+export interface SplashState {
 
 }
 
 export class Splash extends React.Component<SplashProps, SplashState>{
 
-    constructor(props:SplashProps){
+    constructor(props: SplashProps) {
         super(props);
         this.state = INIT_STATE;
     }
 
-    render(){
+    render() {
         const { props, state } = this;
         const cls = this.props.className || "";
 
@@ -41,13 +42,13 @@ export class Splash extends React.Component<SplashProps, SplashState>{
     }
 }
 
-const mapStateToProps = (state: IStoreState, ownProps):Partial<SplashProps> =>{
+const mapStateToProps = (state: IStoreState, ownProps): Partial<SplashProps> => {
     return {
-        locale:state.app.locale
+        locale: state.app.locale
     }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({
-  }, dispatch);
+}, dispatch);
 
-export default connect(mapStateToProps,mapDispatchToProps)(Splash);
+export default connect(mapStateToProps, mapDispatchToProps)(Splash);

@@ -1,8 +1,10 @@
 import { DialogProvider } from "./components/ui/Dialog/DialogProvider";
 
-export const APP_START      	= 0x0100000;
+export const APP_START = 0x0100000;
 
 export const DP = new DialogProvider();
+
+
 
 export const NUMBER_FORMAT_FUNCTION = {
     numberWithCommas: (x) => {
@@ -10,8 +12,8 @@ export const NUMBER_FORMAT_FUNCTION = {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, s);
     },
     currencyNumber: (x, symbol) => {
-        x=parseInt(x).toFixed(0);
-        return x === "£-" ? "N/A": (x < 0 ? "-":"") + symbol + Math.abs(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        x = parseInt(x).toFixed(0);
+        return x === "£-" ? "N/A" : (x < 0 ? "-" : "") + symbol + Math.abs(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     },
     decimal: (x, decimalPoints) => {
         return parseFloat(x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")).toFixed(decimalPoints);
@@ -22,10 +24,10 @@ export const NUMBER_FORMAT_FUNCTION = {
     },
     seCurrency: (x, symbol) => {
         x = parseInt(x).toFixed(0);
-        return x === "£-" ? "N/A": (x < 0 ? "-":"+") + symbol + Math.abs(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        return x === "£-" ? "N/A" : (x < 0 ? "-" : "+") + symbol + Math.abs(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     },
-    reverseCurrencyNumber: (x, symbol) => {
-        x=parseInt(x).toFixed(0);
+    reverseCurrencyNumber: function (x, symbol) {
+        x = parseInt(x).toFixed(0);
         return Math.abs(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + symbol;
     },
     addPostFix: (labelValue: number, decimalPlaces: number, label: string) => {

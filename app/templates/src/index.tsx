@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
+
 import App from './controllers/App/App';
 import { RootReducer } from './_reducers';
 import { IS_MOBILE, IS_EMBED } from './config'

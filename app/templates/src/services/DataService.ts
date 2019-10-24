@@ -1,6 +1,8 @@
+import * as Promise from 'bluebird';
+
 import { Translation } from '../models/models';
 import fb from './Firebase'
-import * as Promise from 'bluebird';
+
 export class DataService {
     app: any;
     database: any;
@@ -22,7 +24,7 @@ export class DataService {
     load() {
         return new Promise((res, rej) => {
 
-            this.database.ref("/" + this.locale).on("value",
+            this.database.ref("/").on("value",
                 (e: any) => {
                     this.data = e.val() as any;
 

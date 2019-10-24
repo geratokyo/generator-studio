@@ -1,70 +1,71 @@
-import { CONFIG } from '../config';
 import axios from 'axios';
 
-export interface requestParams{
-    url:string,
-    method:string,
-    data?:any,
-    dataType?:string
+import { CONFIG } from '../config';
+
+export interface requestParams {
+    url: string,
+    method: string,
+    data?: any,
+    dataType?: string
 }
-class Network{
-    prefix:string = ""
-    constructor(val:string){
+class Network {
+    prefix: string = ""
+    constructor(val: string) {
         this.prefix = val;
     }
 
-    request(method:string, url:string, data:any = {}){
+    request(method: string, url: string, data: any = {}) {
         return axios.request({
-            method:method,
+            method: method,
             url: CONFIG.URL + url,
-            data:data,
+            data: data,
         })
     }
 
-    get(url:string){
+    get(url: string) {
         let s = this.request("get", url);
         return s;
     }
 
-    post(url:string, data:any = {}){
+    post(url: string, data: any = {}) {
         let s = this.request("post", url, data);
         return s;
     }
 
-    put(url:string, data:any = {}){
+    put(url: string, data: any = {}) {
         let s = this.request("put", url, data);
         return s;
     }
 
-    delete(url:string, data:any = {}){
+    delete(url: string, data: any = {}) {
         let s = this.request("delete", url, data);
         return s;
     }
 
 }
-export class Model extends Network{
+export class Model extends Network {
 
-    constructor(v){
+    constructor(v) {
         super(v)
     }
 
-    create = (data)=>{
+    create = (data) => {
         this.post(this.prefix + "/", data);
     }
 
-    find = (id:number)=>{
+    find = (id: number) => {
         this.get(this.prefix + "/" + id);
     }
 
-    getAll = ()=>{
+    getAll = () => {
         this.get(this.prefix + "/");
     }
 
-    destroy = (id)=>{
+    destroy = (id) => {
         this.delete(this.prefix + "/" + id);
     }
 
-    update = (id, data)=>{
+    update = (id, data) => {
         this.put(this.prefix + "/" + id, data);
     }
 }

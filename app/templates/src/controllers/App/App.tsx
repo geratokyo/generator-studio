@@ -1,14 +1,10 @@
 import * as React from 'react';
-import { AppProps, inAppState, inAppInitialState } from './StateAndProps';
-import { ACTIONS } from './Actions';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import {
-    HashRouter as Router,
-    Route,
-    Switch,
-} from 'react-router-dom'
+import { HashRouter as Router, Route, Switch, } from 'react-router-dom';
 
+import { ACTIONS } from './Actions';
+import { AppProps, inAppState, inAppInitialState } from './StateAndProps';
 import Splash from '../../pages/Splash/Splash';
 import DATA_SERVICE from '../../services/DataService';
 import { Spinner } from '../../components/ui/Spinner/Spinner';

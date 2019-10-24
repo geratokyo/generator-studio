@@ -9,13 +9,12 @@ $item-background: $color-2;
 /*************************/
 ///// COMPONENT CODE //////
 /*************************/
-.dropdown{
-
+.dropdown {
     &__wrapper {
         position: relative;
     }
 
-    &__label  {
+    &__label {
         cursor: default;
     }
 
@@ -34,7 +33,7 @@ $item-background: $color-2;
         transform: translateY(-50%);
 
         &--open {
-            transform: rotate(180deg) translateY(50%)
+            transform: rotate(180deg) translateY(50%);
         }
     }
 
@@ -60,23 +59,20 @@ $item-background: $color-2;
     }
 }
 
-@include SmallDevice{
-    .dropdown{
+@include SmallDevice {
+    .dropdown {
     }
 }
 
-
-@include MediumDevice{
-    .dropdown{
+@include MediumDevice {
+    .dropdown {
     }
 }
 
-@include OnEmbedDevice(){
-    .dropdown{
-
+@include OnEmbedDevice() {
+    .dropdown {
     }
 }
-
 
 /*************************/
 /////// CUSTOM CODE ///////
