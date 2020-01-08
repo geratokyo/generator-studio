@@ -19,6 +19,14 @@ class App extends React.Component<AppProps, inAppState>{
 
     componentDidMount() {
         /*******************************************************
+        * Grabs Deeplink element and stores it in Redux state as string
+        ********************************************************/
+        const el = document.getElementById('SiteDeeplink');
+        (el.firstElementChild as HTMLElement).style.width = null;
+        this.props.getDeeplinkEl(el.outerHTML);
+        el.parentNode.removeChild(el);
+
+        /*******************************************************
         * Update Firebase credentials and uncomment to load data
         ********************************************************/
 

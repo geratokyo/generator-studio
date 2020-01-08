@@ -11,6 +11,10 @@ export function Reducer(state = AppInitState, action): any {
 			state.data = action.data.data
 			return { ...state };
 
+		case TYPES.GET_DEEPLINK:
+			state.deeplinkHtml = action.data;
+			return { ...state };
+
 		default:
 			return state;
 	}
