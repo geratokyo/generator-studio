@@ -62,6 +62,6 @@ function mapStateToProps(state: any, ownProps) {
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({ loadData: ACTIONS.DATA_LOADED }, dispatch);
+const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({ loadData: ACTIONS.DATA_LOADED, getDeeplinkEl: ACTIONS.GET_DEEPLINK }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
