@@ -9,6 +9,7 @@ import { Translation } from '../../models/models';
 export interface SplashProps extends ReactRedux.DispatchProp<any> {
     className?: string;
     locale: Translation;
+    deeplink: string;
 }
 
 const INIT_STATE: SplashState = {
@@ -44,7 +45,8 @@ export class Splash extends React.Component<SplashProps, SplashState>{
 
 const mapStateToProps = (state: IStoreState, ownProps): Partial<SplashProps> => {
     return {
-        locale: state.app.locale
+        locale: state.app.locale,
+        deeplink: state.app.deeplinkHtml,
     }
 }
 
