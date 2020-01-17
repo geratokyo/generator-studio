@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_USER_AGENT} googlebot|bingbot|yandex|baiduspider [NC]
+RewriteRule index.html index-rendered.html [NC,L]
