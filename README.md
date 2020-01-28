@@ -1,5 +1,5 @@
 #__Studio Template Generator__
-
+[![Run on Repl.it](https://repl.it/badge/github/geratokyo/generator-studio)](https://repl.it/github/geratokyo/generator-studio)
 ##Getting started
 
 install Yeoman and generator-studio globally
