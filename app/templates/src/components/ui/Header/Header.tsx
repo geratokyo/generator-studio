@@ -48,11 +48,13 @@ export class Header extends React.Component<HeaderProps, HeaderState>{
                     <i className="icon-burger" />
                 </div>
                 <div className={`header__block header__menu ${(props.currSection == "splash" ? "header__block--hidden " : "")}`}>
-                    <NavMenu
-                        currSection={props.currSection}
-                        navData={props.navData}
-                        handleClick={props.scrollToAnchor}
-                    />
+                    {props.navData.length > 0 && (
+                        <NavMenu
+                            currSection={props.currSection}
+                            navData={props.navData}
+                            handleClick={props.scrollToAnchor}
+                        />
+                    )}
                 </div>
                 <div className="header__block header__socials">
                     <SocialButtons />

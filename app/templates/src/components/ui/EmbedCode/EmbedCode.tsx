@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { Translation } from '../../../models/models';
+
 import { Button } from '../Button/Button';
-import { RES_URL } from '../../../config';
-import VerticalAligner from '../VerticalAligner/VerticalAligner';
 import I18n from '../../../services/I18n';
 
 

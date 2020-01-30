@@ -25,7 +25,7 @@ export function SHOW_INFO_DIALOG() {
 }
 
 export function SHOW_MENU_DIALOG(
-    navData: iNavData,
+    navData: iNavData[],
     currSection: string,
     handleClick: (key: string) => void
 ) {
