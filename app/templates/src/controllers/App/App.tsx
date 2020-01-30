@@ -6,6 +6,7 @@ import { HashRouter as Router, Route, Switch, } from 'react-router-dom';
 import { ACTIONS } from './Actions';
 import { AppProps, inAppState, inAppInitialState } from './StateAndProps';
 import Splash from '../../pages/Splash/Splash';
+import SinglePage from '../../pages/SinglePage/SinglePage';
 import DATA_SERVICE from '../../services/DataService';
 import { Spinner } from '../../components/ui/Spinner/Spinner';
 
@@ -29,7 +30,6 @@ class App extends React.Component<AppProps, inAppState>{
         /*******************************************************
         * Update Firebase credentials and uncomment to load data
         ********************************************************/
-
         // if (DATA_SERVICE.isDataLoaded) {
 
         //     this.props.loadData(DATA_SERVICE.getData());
@@ -49,6 +49,7 @@ class App extends React.Component<AppProps, inAppState>{
                 <Router hashType="noslash">
                     <Switch>
                         <Route exact path="/" component={Splash} />
+                        <Route exact path="/:key?" component={SinglePage} />
                     </Switch>
                 </Router>
             </div>

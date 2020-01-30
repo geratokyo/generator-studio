@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { Button } from '../Button/Button';
+
 import { DP } from '../../../constants';
-import { Translation } from '../../../models/models';
 import { EmbedCode } from '../EmbedCode/EmbedCode';
 import { DialogProps } from './Dialog';
-import { SCREEN_WIDTH } from '../../../config';
+import { SCREEN_WIDTH, RES_URL } from '../../../config';
 import I18n from '../../../services/I18n';
+import { NavMenu } from '../NavMenu/NavMenu';
+import { iNavData } from '../../../models/models';
 
 export function SHOW_EMBED_DIALOG() {
     DP.show((res, rej) => {
@@ -23,6 +24,28 @@ export function SHOW_INFO_DIALOG() {
     }, GET_DIALOG_OPTS())
 }
 
+export function SHOW_MENU_DIALOG(
+    navData: iNavData,
+    currSection: string,
+    handleClick: (key: string) => void
+) {
+    DP.show((res, rej) => {
+        return (
+            <>
+                <div className="nav-menu__campaign-logo ">
+                    <a href="/">
+                        <img src={RES_URL + "img/campaign-logo.svg"} alt={I18n.t("altText")} />
+                    </a>
+                </div>
+                <NavMenu
+                    navData={navData}
+                    currSection={currSection}
+                    handleClick={handleClick}
+                />
+            </>
+        )
+    }, { ...GET_DIALOG_OPTS(), className: "dialog--nav-menu" })
+}
 
 const GET_DIALOG_OPTS = (): DialogProps => {
     if (SCREEN_WIDTH.IS_SMALL()) {
