@@ -40,11 +40,11 @@ export class Splash extends React.Component<SplashProps, SplashState>{
 
         return (
             <div className={"splash " + cls}>
-                <Header
+                {/* <Header
                     deeplink={props.deeplink}
                     navData={props.navData}
                     currSection={props.match.params.key}
-                />
+                /> */}
                 <h1>Studio Generator</h1>
                 <div className="splash__block splash__campaign-logo">
                     <img src={`${RES_URL}img/campaign-logo.png`} alt={I18n.t('campaignName')} />
@@ -52,7 +52,7 @@ export class Splash extends React.Component<SplashProps, SplashState>{
                 <div className="splash__block splash__copy">
                     <p>{I18n.t('splashIntro')}</p>
                 </div>
-                <LinkButton className="splash__block splash__button" href={props.navData[0].url} />
+                <LinkButton className="splash__block splash__button" href={`/`} />
             </div>
         )
     }
