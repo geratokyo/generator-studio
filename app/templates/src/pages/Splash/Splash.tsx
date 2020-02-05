@@ -4,12 +4,17 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { IStoreState } from '../../_reducers';
-import { Translation } from '../../models/models';
+import { Translation, iNavData } from '../../models/models';
+import { Header } from '../../components/ui/Header/Header';
+import { RES_URL } from '../../config';
+import I18n from '../../services/I18n';
+import { LinkButton } from '../../components/ui/Button/Button';
 
 export interface SplashProps extends ReactRedux.DispatchProp<any> {
     className?: string;
     locale: Translation;
     deeplink: string;
+    navData: iNavData[];
 }
 
 const INIT_STATE: SplashState = {
@@ -33,11 +38,19 @@ export class Splash extends React.Component<SplashProps, SplashState>{
 
         return (
             <div className={"splash " + cls}>
-                <div className="row">
-                    <div className="col s12 m12 l12">
-                        <h1>Studio Generator</h1>
-                    </div>
+                {/* <Header
+                    deeplink={props.deeplink}
+                    navData={props.navData}
+                    currSection={props.match.params.key}
+                /> */}
+                <h1>Studio Generator</h1>
+                <div className="splash__block splash__campaign-logo">
+                    <img src={`${RES_URL}img/campaign-logo.png`} alt={I18n.t('campaignName')} />
                 </div>
+                <div className="splash__block splash__copy">
+                    <p>{I18n.t('splashIntro')}</p>
+                </div>
+                <LinkButton className="splash__block splash__button" href={`/`} />
             </div>
         )
     }
@@ -47,6 +60,7 @@ const mapStateToProps = (state: IStoreState, ownProps): Partial<SplashProps> => 
     return {
         locale: state.app.locale,
         deeplink: state.app.deeplinkHtml,
+        navData: state.app.navData,
     }
 }
 

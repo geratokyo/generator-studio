@@ -58,6 +58,16 @@ export const INIT_TRANSLATIONS: Translation = {
     valueMapDesc: []
 }
 
+export interface iNavData {
+    key: string;
+    title: string;
+    parent: string;
+    url: string;
+    copy: string[];
+    children: iNavData[];
+    order?: number;
+}
+
 export interface iData {
     key: string;
     title: string;

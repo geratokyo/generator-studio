@@ -7,8 +7,10 @@ export function Reducer(state = AppInitState, action): any {
 	switch (action.type) {
 		case TYPES.DATA_LOADED:
 			state.locale = action.data.locale;
+			state.data = action.data.data;
+			state.navData = action.data.navData;
+			state.content = action.data.content;
 			I18n.setLocale({ ...action.data.locale });
-			state.data = action.data.data
 			return { ...state };
 
 		case TYPES.GET_DEEPLINK:
