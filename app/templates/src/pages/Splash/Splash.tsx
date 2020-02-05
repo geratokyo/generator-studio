@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as ReactRedux from 'react-redux';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { match } from 'react-router-dom';
 
 import { IStoreState } from '../../_reducers';
 import { Translation, iNavData } from '../../models/models';
@@ -16,7 +15,6 @@ export interface SplashProps extends ReactRedux.DispatchProp<any> {
     locale: Translation;
     deeplink: string;
     navData: iNavData[];
-    match: match;
 }
 
 const INIT_STATE: SplashState = {

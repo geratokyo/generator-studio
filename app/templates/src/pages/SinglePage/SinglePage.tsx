@@ -8,7 +8,6 @@ import {
     goToAnchor,
     removeHash
 } from 'react-scrollable-anchor';
-import { match } from 'react-router-dom';
 
 import { IStoreState } from '../../_reducers';
 import { iData, iNavData, Dictionary } from '../../models/models';
@@ -23,7 +22,6 @@ export interface SinglePageProps extends ReactRedux.DispatchProp<any> {
     content: iCmsItem[];
     data: Dictionary<iData>;
     navData: iNavData[];
-    match: match;
 }
 
 const INIT_STATE: SinglePageState = {
