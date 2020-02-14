@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { RouteComponentProps } from 'react-router';
 import * as ReactRedux from 'react-redux';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
@@ -10,7 +11,7 @@ import { RES_URL } from '../../config';
 import I18n from '../../services/I18n';
 import { LinkButton } from '../../components/ui/Button/Button';
 
-export interface SplashProps extends ReactRedux.DispatchProp<any> {
+export interface SplashProps extends ReactRedux.DispatchProp<any>, RouteComponentProps<any> {
     className?: string;
     locale: Translation;
     deeplink: string;
