@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactRedux from 'react-redux';
 import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 import { bindActionCreators, Dispatch } from 'redux';
 import { Cemester, iCmsItem } from 'cemester';
 import {
@@ -16,7 +17,7 @@ import { DP } from '../../constants';
 import { SHOW_MENU_DIALOG } from '../../components/ui/Dialog/Utils';
 import { Header } from '../../components/ui/Header/Header';
 
-export interface SinglePageProps extends ReactRedux.DispatchProp<any> {
+export interface SinglePageProps extends ReactRedux.DispatchProp<any>, RouteComponentProps<any> {
     className?: string;
     deeplink: string;
     content: iCmsItem[];
