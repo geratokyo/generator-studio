@@ -1,31 +1,19 @@
-// html, body{
-//     height:auto;
-//     min-height: 100%;
-// }
-
 body {
     background-color: $color-2;
 }
 
-.container-fluid {
-    width: 100%;
-    max-width: initial;
-    > .row {
-        margin: 0;
-        padding: 15px;
-        > .col {
-            padding: 0;
-        }
-    }
+a {
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 #SiteDeeplink {
-    width: 100px;
-    display: none;
-    img {
-        width: 100%;
-        height: auto;
-    }
+    width: 80px;
 }
 
 %box {
