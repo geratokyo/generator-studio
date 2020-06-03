@@ -2,6 +2,7 @@ import * as React from 'react';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Switch, } from 'react-router-dom';
+import * as throttle from 'lodash.throttle';
 
 import { ACTIONS } from './Actions';
 import { AppProps, inAppState, inAppInitialState } from './StateAndProps';
@@ -9,6 +10,8 @@ import Splash from '../../pages/Splash/Splash';
 import SinglePage from '../../pages/SinglePage/SinglePage';
 import DATA_SERVICE from '../../services/DataService';
 import { Spinner } from '../../components/ui/Spinner/Spinner';
+import MobLandScreen from '../../components/ui/MobLandScreen/MobLandScreen';
+import { IS_MOB_LANDSCAPE } from '../../config';
 
 export const STATE_KEY = 'app';
 
@@ -38,12 +41,25 @@ class App extends React.Component<AppProps, inAppState>{
         //         this.props.loadData(e);
         //     })
         // }
+
+        window.addEventListener('resize', throttle(this.resize, 300));
     }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', throttle(this.resize, 300));
+    }
+
+    resize = () => {
+        this.forceUpdate();
+    };
 
     render() {
         // if (!DATA_SERVICE.isDataLoaded) {
         //     return <Spinner />
         // }
+        if (IS_MOB_LANDSCAPE()) {
+            return <MobLandScreen />;
+        }
         return (
             <div className={`app`}>
                 <Router hashType="noslash">
