@@ -24,6 +24,8 @@ export var SCREEN_WIDTH = {
     IS_LARGE: () => { return window.innerWidth > 993 }
 }
 
+export const IS_MOB_LANDSCAPE = () => IS_MOBILE && window.innerWidth > window.innerHeight;
+
 /**
  * Url during the development of the campaign when working locally
  */
