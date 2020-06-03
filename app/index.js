@@ -47,7 +47,7 @@ module.exports = class extends Generator {
     }
 
     appendSlash(str){
-        let s = str[str.length - 1]; 
+        let s = str[str.length - 1];
         if (s !== "/"){
             return str + "/"
         }
@@ -56,14 +56,14 @@ module.exports = class extends Generator {
 
     _copyFiles() {
         let excludePublic = this.config.get("excludePublic");
-        let srcDir = this.config.get("srcDir"); 
-        let isStory = this.config.get("isStory"); 
+        let srcDir = this.config.get("srcDir");
+        let isStory = this.config.get("isStory");
 
         let ignoreFiles = ["**/.DS_Store"];
 
         if(!isStory){
             ignoreFiles.push("**/*.stories.tsx")
-        }else{ 
+        }else{
             this.fs.copyTpl(
                 this.templatePath('storybook/**'),
                 this.destinationPath('.storybook/'),
@@ -100,7 +100,7 @@ module.exports = class extends Generator {
             },
             {},
             {
-                
+
                 globOptions: {
                     dot: true,
                     ignore: ignoreFiles
@@ -130,6 +130,16 @@ module.exports = class extends Generator {
             this.destinationPath('README.md')
         );
 
+        this.fs.copy(
+            this.templatePath('.prettierrc.js'),
+            this.destinationPath('.prettierrc.js')
+        );
+
+        this.fs.copy(
+            this.templatePath('.eslintrc.js'),
+            this.destinationPath('.eslintrc.js')
+        );
+
         this.fs.copyTpl(
             this.templatePath('tsconfig.json'),
             this.destinationPath('tsconfig.json'),
@@ -139,7 +149,7 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath('package.json'),
             this.destinationPath('package.json'),
-            { 
+            {
                 appname: this.options.appname,
                 isStory:this.config.get("isStory")
             }
